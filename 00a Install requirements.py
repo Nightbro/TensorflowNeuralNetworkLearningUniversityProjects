@@ -9,4 +9,4 @@ def install_requirements():
     print("Requirements have been installed")
 
 
-#install_requirements()
+install_requirements()

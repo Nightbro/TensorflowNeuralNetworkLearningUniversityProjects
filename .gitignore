@@ -131,3 +131,4 @@ dmypy.json
 #dataset
 speech_commands_v0.02.tar.gz
 speech_commands/*
+spectograms/*
