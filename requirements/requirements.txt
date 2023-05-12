@@ -2,4 +2,6 @@ librosa
 tensorflow
 pandas
 ffmpeg
+matplotlib
 pydub
+pysoundfile
