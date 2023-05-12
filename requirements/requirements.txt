@@ -5,3 +5,6 @@ ffmpeg
 matplotlib
 pydub
 pysoundfile
+seaborn
+IPython
+wget
