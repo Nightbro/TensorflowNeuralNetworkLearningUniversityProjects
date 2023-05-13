@@ -59,7 +59,7 @@ def preprocess_list_file(list_file_path, output_dir):
         np.save(os.path.join(command_dir, filename), spectrogram)
 
 # Preprocess the training set
-preprocess_list_file(train_list, os.path.join(spectogram_dir, train_dir))
+#preprocess_list_file(train_list, os.path.join(spectogram_dir, train_dir))
 
 # Preprocess the validation set
 preprocess_list_file(validation_list, os.path.join(spectogram_dir, validation_dir))
