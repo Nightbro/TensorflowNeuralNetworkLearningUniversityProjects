@@ -10,6 +10,8 @@ from tensorflow.keras.optimizers import SGD
 import numpy as np
 
 max_frames = 128
+n_fft = 256
+hop_length = 128
 
 
 # Load the preprocessed data
