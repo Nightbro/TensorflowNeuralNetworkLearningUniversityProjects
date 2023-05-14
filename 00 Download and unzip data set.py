@@ -4,23 +4,15 @@ import os
 import glob
 
 def downloadDataSet():
-    # Set the URL for the dataset download
     url = 'http://download.tensorflow.org/data/speech_commands_v0.02.tar.gz'
-
-    # Set the filename for the downloaded file
     filename = 'speech_commands_v0.02.tar.gz'
     output_path = os.path.join(os.getcwd(), 'speech_commands')
-
-    # Download the file
     wget.download(url, filename)
-
-    # Extract the files
     tar = tarfile.open(filename)
     tar.extractall(path=output_path)
     tar.close()
 
-
-#downloadDataSet()
+downloadDataSet()
 
 
 def fixPath(path, newPath):
@@ -31,31 +23,22 @@ def fixPath(path, newPath):
             # Write the corrected file path to the output file
             f_out.write(line_corrected)
 
-#fixPath("speech_commands/testing_list.txt","speech_commands/testing.txt")
-#fixPath("speech_commands/validation_list.txt","speech_commands/validation.txt")
+fixPath("speech_commands/testing_list.txt","speech_commands/testing.txt")
+fixPath("speech_commands/validation_list.txt","speech_commands/validation.txt")
 
 
 #after this remove files and folders from the txt file manualy, as well as data in _background_noise_
 def createAFileWithAllFilePathsInIt():
-    # Set the path to the txt file
-    # Set the directory to search for files in
     dir_path = 'speech_commands'
-
-    # Set the filename to write the list of file paths to
     file_path = 'speech_commands/train_list.txt'
-
-    # Set the file containing the list of files to exclude
     exclude_testing_path = 'speech_commands/testing_list.txt'
     exclude_validation_path = 'speech_commands/validation_list.txt'
 
-    # Read the list of files to exclude from the exclude file
     with open(exclude_testing_path, 'r') as exclude_file:
         exclude_testing_files = [line.strip() for line in exclude_file]
-
     with open(exclude_validation_path, 'r') as exclude_file:
         exclude_validation_files = [line.strip() for line in exclude_file]
 
-    # Open the file for writing
     with open(file_path, 'w') as f:
         # Loop over each subdirectory in the specified directory
         for subdir_path in glob.glob(os.path.join(dir_path, '*'), recursive=True):
@@ -70,7 +53,6 @@ def createAFileWithAllFilePathsInIt():
                         if file_full_name not in exclude_validation_files:
                             # Write the file path to the file
                             f.write(file_full_name+"\n")
-
 
 
 createAFileWithAllFilePathsInIt()

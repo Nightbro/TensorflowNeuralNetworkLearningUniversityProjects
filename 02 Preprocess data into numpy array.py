@@ -37,9 +37,6 @@ def preprocess_audio_file(audio_path):
     else:
         log_mag_spec = np.pad(log_mag_spec, ((0, 0), (0, max_frames - log_mag_spec.shape[1])), mode='constant')
 
-    # Apply any necessary preprocessing to the log-magnitude spectrogram
-    # (e.g., normalization, feature scaling, data augmentation)
-
     return log_mag_spec
 
 # Define a function to preprocess all audio files in a list file
@@ -63,10 +60,7 @@ def preprocess_list_file(list_file_path):
 
     # Stack all spectrograms to create a 4D tensor
     x_data = np.stack(x_data, axis=0)
-
     return x_data, np.array(y_data)
-
-# Call the preprocessing function on your training, validation, and testing directories
 
 x_val, y_val = preprocess_list_file(validation_list)
 np.savez_compressed('preprocessed_data_val.npz', x_val=x_val, y_val=y_val)
@@ -77,9 +71,3 @@ np.savez_compressed('preprocessed_data_test.npz', x_test=x_test, y_test=y_test)
 
 x_train, y_train = preprocess_list_file(train_list)
 np.savez_compressed('preprocessed_data_train.npz', x_train=x_train, y_train=y_train)
-
-
-
-# Save the preprocessed data as one compressed NumPy file
-#np.savez_compressed('preprocessed_data_test.npz', x=x_test, y=y_test)
-#np.savez_compressed('preprocessed_data.npz', x_train=x_train, y_train=y_train, x_val=x_val, y_val=y_val, x_test=x_test, y_test=y_test)
