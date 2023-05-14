@@ -132,3 +132,6 @@ dmypy.json
 speech_commands_v0.02.tar.gz
 speech_commands/*
 spectograms/*
+preprocessed_data_test.npz
+preprocessed_data_train.npz
+preprocessed_data_val.npz
