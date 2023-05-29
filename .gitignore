@@ -135,3 +135,4 @@ spectograms/*
 preprocessed_data_test.npz
 preprocessed_data_train.npz
 preprocessed_data_val.npz
+TextRecognition/SourceEMNIST/*
